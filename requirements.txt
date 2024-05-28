@@ -1,0 +1,17 @@
+필요 라이브러리
+
+pandas
+sqlalchemy
+psycopg2
+
+
+DQPROJECT/
+├── Module/
+│   ├── Completeness.py
+│   ├── DBconnection.py
+│   ├── Validity.py
+├── .gitignore
+├── image.png
+├── main.py
+├── README.md
+└── requirements.txt
