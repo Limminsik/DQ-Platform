@@ -1,6 +1,6 @@
-from database import connect_db, close_db
-from completeness import calculate_missingness
-from validity import check_vocab_validity
+from Module.dbconnection import connect_db, close_db
+from Module.completeness import calculate_missingness
+from Module.validity import check_vocab_validity
 import pandas as pd
 
 # 데이터베이스 연결 설정
