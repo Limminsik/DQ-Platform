@@ -12,7 +12,7 @@
 
 
 ### Dataset KR-CDI
-
+![alt text](image-1.png)
 
 ## 1. 데이터 품질 프레임워크 정의
 
