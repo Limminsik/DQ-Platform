@@ -1,0 +1,113 @@
+CREATE DATABASE dqproject;
+
+-- 환자 정보
+CREATE TABLE person (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    registration_number VARCHAR(50),
+    gender VARCHAR(10),
+    birth_date DATE,
+    diagnosis TEXT
+);
+
+-- 의료기관 정보
+CREATE TABLE institution (
+    id SERIAL PRIMARY KEY,
+    institution_name VARCHAR(100),
+    institution_type VARCHAR(50)
+);
+
+-- 유전체 정보
+CREATE TABLE genetic (
+    id SERIAL PRIMARY KEY,
+    genetic_sequence TEXT,
+    genetic_variant TEXT,
+    genetic_expression TEXT
+);
+
+-- 바이오마커 정보
+CREATE TABLE biomarker (
+    id SERIAL PRIMARY KEY,
+    blood_marker TEXT,
+    genetic_marker TEXT,
+    protein_marker TEXT
+);
+
+-- 생물학적 자원 정보 
+CREATE TABLE biological_resource (
+    id SERIAL PRIMARY KEY,
+    species_info TEXT,
+    genetic_resource_info TEXT,
+    biobank_info TEXT,
+    biomarker_info TEXT
+);
+
+-- 진단 정보
+CREATE TABLE diagnosis (
+    id SERIAL PRIMARY KEY,
+    diagnosis_date DATE,
+    diagnosis_name TEXT,
+    clinical_status TEXT
+);
+
+-- 활력 징후 / 신체 계측 정보
+CREATE TABLE vital_signs (
+    id SERIAL PRIMARY KEY,
+    blood_pressure TEXT,
+    pulse_rate TEXT,
+    temperature TEXT,
+    oxygen_saturation TEXT
+);
+
+
+-- 진료 정보 
+CREATE TABLE medical_record (
+    id SERIAL PRIMARY KEY,
+    department VARCHAR(100),
+    medical_staff_info TEXT,
+    patient_history TEXT,
+    surgery_history TEXT
+);
+
+-- 검사 정보
+CREATE TABLE measurement (
+    id SERIAL PRIMARY KEY,
+    test_type TEXT,
+    test_result TEXT,
+    test_date DATE
+);
+
+-- 영상 정보
+CREATE TABLE imaging (
+    id SERIAL PRIMARY KEY,
+    imaging_type TEXT,
+    imaging_date DATE,
+    diagnostic_details TEXT
+);
+
+-- 약물 정보
+CREATE TABLE drug (
+    id SERIAL PRIMARY KEY,
+    medication_name TEXT,
+    dosage TEXT,
+    administration_date DATE
+);
+
+-- 질병 정보
+CREATE TABLE disease (
+    id SERIAL PRIMARY KEY,
+    disease_name TEXT,
+    disease_code TEXT,
+    occurrence_cause TEXT
+);
+
+-- 생체 정보
+CREATE TABLE physiological (
+    id SERIAL PRIMARY KEY,
+    blood_type TEXT,
+    height NUMERIC,
+    weight NUMERIC,
+    blood_pressure TEXT,
+    heart_rate TEXT
+);
+
