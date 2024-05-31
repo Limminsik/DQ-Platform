@@ -1,1 +1,7 @@
 # 필수 라이브러리 명시
+
+pip install -r requriements.txt
+
+# DB Connection
+pip install sqlalchemy
+pip install psycopg2-binary
