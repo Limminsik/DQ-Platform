@@ -1,6 +1,6 @@
-from dq_assessment_module.dbconnection import connect_db, close_db
-from dq_assessment_module.completeness import calculate_missingness
-from dq_assessment_module.validity import check_vocab_validity
+from dq_assessment.dbconnection import connect_db, close_db
+from dq_assessment.completeness import calculate_missingness
+from dq_assessment.validity import check_vocab_validity
 import pandas as pd
 
 # 데이터베이스 연결 설정
