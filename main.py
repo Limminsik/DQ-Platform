@@ -22,12 +22,12 @@ engine = connect_db(dbname, host, port, user, password)
 print("Database connection established successfully!")
 
 
-# # 완전성 평가 예제 실행
-# table_name = "your_schema.your_table"
-# column_name = "title_of_courtesy"
+# 완전성 평가 예제 실행
+table_name = "hr.dept"
+column_name = "deptno"
 
-# completeness_result = calculate_missingness(engine, table_name, column_name)
-# print("Completeness Result:", completeness_result)
+completeness_result = calculate_missingness(engine, table_name, column_name)
+print("Completeness Result:", completeness_result)
 
 
 

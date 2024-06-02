@@ -1,5 +1,6 @@
 # DB Connection
 
+import psycopg2
 from sqlalchemy import create_engine
 
 def connect_db(dbname, host, port, user, password):
