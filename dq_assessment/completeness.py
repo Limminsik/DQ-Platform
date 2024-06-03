@@ -1,4 +1,5 @@
 import pandas as pd
+import psycopg2
 from sqlalchemy import text
 
 nonsense = ['+', '-', '_', '#', '$', '*', '\\', '?', '.', '&', '^', '!', '@', 'NI', 'M']
