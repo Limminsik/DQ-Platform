@@ -1,6 +1,7 @@
 import sys
 import os
 import pandas as pd
+from sqlalchemy import text, create_engine
 
 # 현재 파일의 디렉토리를 기준으로 경로 설정
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'dq_assessment_module')))

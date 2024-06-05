@@ -1,6 +1,6 @@
 import pandas as pd
 import psycopg2
-from sqlalchemy import text
+from sqlalchemy import text, engine
 
 nonsense = ['+', '-', '_', '#', '$', '*', '\\', '?', '.', '&', '^', '!', '@', 'NI', 'M']
 
@@ -28,7 +28,7 @@ def get_total_count(engine, table_name):
         SELECT COUNT(*) AS total_count
         FROM {table_name};
     """)
-    result = pd.read_sql_query(query, engine)
+    result = pd.read_sql_query(sql = text(query), con = engine)
     return result['total_count'][0]
 
 def calculate_missingness(engine, table_name, column_name):
