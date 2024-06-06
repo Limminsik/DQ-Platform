@@ -28,7 +28,7 @@ def get_total_count(engine, table_name):
         SELECT COUNT(*) AS total_count
         FROM {table_name};
     """)
-    result = pd.read_sql_query(sql = text(query), con = engine)
+    result = pd.read_sql_query(sql = text(query), con = engine) # string or byte issues
     return result['total_count'][0]
 
 def calculate_missingness(engine, table_name, column_name):
