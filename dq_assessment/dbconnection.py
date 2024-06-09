@@ -1,11 +1,32 @@
-# DB Connection
-
 import psycopg2
-from sqlalchemy import create_engine
+import pandas as pd
 
 def connect_db(dbname, host, port, user, password):
-    engine = create_engine(f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}')
-    return engine
+    try:
+        conn = psycopg2.connect(
+            dbname=dbname,
+            host=host,
+            port=port,
+            user=user,
+            password=password
+        )
+        return conn
+    except psycopg2.OperationalError as e:
+        print("Error connecting to database:")
+        print(f"DB Name: {dbname}")
+        print(f"Host: {host}")
+        print(f"Port: {port}")
+        print(f"User: {user}")
+        print(f"Password: {password}")
+        print(f"Error message: {e}")
+        raise
 
-def close_db(engine):
-    engine.dispose()
+def close_db(conn):
+    conn.close()
+
+def fetch_data(conn, query):
+    try:
+        return pd.read_sql_query(query, conn)
+    except Exception as e:
+        print(f"Error fetching data: {e}")
+        raise

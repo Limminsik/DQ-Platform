@@ -1,3 +1,15 @@
+# CSS v1.0
+
+DQproject/
+│
+├── dq_assessment/
+│   └── dbconnection.py
+├── main.py
+├── requirements.txt
+
+
+
+
 # DQproject
 본 플랫폼은 보건의료 데이터의 품질 평가 및 관리를 위해 설게된 플랫폼
 다양한 보건의료 데이터 레지스트리의 데이터 품질을 평가하고자 함.
