@@ -1,0 +1,24 @@
+{   
+
+    "DBMS": "PostgreSQL",
+
+    "database": "postgres",
+
+    "schema": "hr",
+    "vocabulary schema": "vocab",
+
+    "Credentials": {
+        "User": "postgres",
+        "Password": "4002"
+    },
+
+    "ConnectionDetails": {
+        "Host": "localhost",
+        "Port": "5432",
+        "Driver": "PostgreSQL"
+    },
+
+    "Organization": "GCU",
+    
+    "Name": "Minsik"
+}
