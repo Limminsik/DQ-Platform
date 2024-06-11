@@ -20,6 +20,7 @@ try:
 
     # Example query to fetch data
     table_name = "hr.emp"
+    column_name = "job"
     query = f"SELECT * FROM {table_name} LIMIT 10;"
     
     # Fetch data into a DataFrame
@@ -27,6 +28,15 @@ try:
     print("Data loaded successfully:")
     print(data)
     
+    #Completeness Test
+    completeness_instance = completeness(query_instance)
+    completeness_result = completeness_instance.calculate_completeness(table_name, column_name)
+    print("Completeness Result:", completeness_result)
+
+
+
+
+
     # Close the database connection
     query_instance.close_db()
     print("Database connection closed.")
@@ -37,7 +47,3 @@ except OperationalError as e:
 except Exception as e:
     print(f"An unexpected error occurred: {e}")
     traceback.print_exc()
-
-
-completeness(query).completeness
-print("Completeness Test has been run")
