@@ -8,6 +8,7 @@ import traceback
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'modules')))
 
 from modules.query import Query
+from modules.completeness import completeness
 
 # Database connection settings from config file
 config_file = "config.json"
@@ -36,3 +37,7 @@ except OperationalError as e:
 except Exception as e:
     print(f"An unexpected error occurred: {e}")
     traceback.print_exc()
+
+
+completeness(query).completeness
+print("Completeness Test has been run")
