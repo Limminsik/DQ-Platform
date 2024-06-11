@@ -18,7 +18,7 @@ try:
     print("Database connection established successfully!")
 
     # Example query to fetch data
-    table_name = "hr.dept"
+    table_name = "hr.emp"
     query = f"SELECT * FROM {table_name} LIMIT 10;"
     
     # Fetch data into a DataFrame

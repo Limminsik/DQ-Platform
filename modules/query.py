@@ -23,25 +23,63 @@ class Query:
         self.host: str = self.config["ConnectionDetails"]["Host"]
         self.port: str = self.config["ConnectionDetails"]["Port"]
 
-        self.conn = self.connect_db()
+        if self.DBMS == "oracle":
+                ## cx_oracle can be difficult/finicky to download for new python users.
+                #  if oracle is not being used, we'll just skip this whole thing
 
-    def connect_db(self):
+                self.conn = self.Oracle()
+        elif self.DBMS == "postgresql":
+                self.conn = self.PostgreSQL()
+        elif self.DBMS == "redshift":
+                self.conn = self.Redshift()
+        elif self.DBMS == "sql server":
+                self.conn = self.SQLServer()
+        elif self.DBMS == "":
+                raise NameError("No DBMS defined in config.json")
+        else:
+                raise NameError("'%s' is not an accepted DBMS" % self.DBMS)
+            ## --------------------------------------------------
+
+
+    def Oracle(self):
         try:
-            conn = psycopg2.connect(
-                host=self.host,
-                port=self.port,
-                user=self.user,
-                password=self.password
-            )
-            return conn
-        except psycopg2.OperationalError as e:
-            print("Error connecting to database:")
-            print(f"Host: {self.host}")
-            print(f"Port: {self.port}")
-            print(f"User: {self.user}")
-            print(f"Password: {self.password}")
-            print(f"Error message: {e}")
-            raise
+            import cx_Oracle as Oracle
+        except ModuleNotFoundError:
+            import cx_oracle as Oracle
+        conn = Oracle.connect(self.user + "/" + self.password + "@" + self.database)
+
+        return conn
+
+
+    def PostgreSQL(self):
+        import psycopg2 as postgresql
+        conn = postgresql.connect(database=self.database,
+                                  user=self.user,
+                                  password=self.password,
+                                  host=self.host,
+                                  port=self.port)
+        return conn
+
+
+    def Redshift(self):
+        import psycopg2 as postgresql
+        conn = postgresql.connect(database=self.database,
+                                  user=self.user,
+                                  password=self.password,
+                                  host=self.host,
+                                  port=self.port)
+        return conn
+
+
+    def SQLServer(self):
+        import pyodbc as sqlserver
+        driver: str = self.config["ConnectionDetails"]["Driver"]
+        conn = sqlserver.connect("DRIVER=" + driver +
+                                 ";SERVER=" + self.host +
+                                 ";DATABASE=" + self.database +
+                                 ";UID=" + self.user +
+                                 ";PWD=" + self.password)
+        return conn
 
     def close_db(self):
         self.conn.close()
