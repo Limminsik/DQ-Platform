@@ -8,7 +8,7 @@ DQproject/
 ├── requirements.txt
 
 
-
+# HAPP(Healthcare data Automated Preprocessing Process-based Quality Management) 스마트데이터 품질관리 플랫폼
 
 # DQproject
 본 플랫폼은 보건의료 데이터의 품질 평가 및 관리를 위해 설게된 플랫폼
