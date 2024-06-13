@@ -3,12 +3,13 @@ import os
 import pandas as pd
 from psycopg2 import OperationalError
 import traceback
+import json
 
 # Add modules to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'modules')))
 
 from modules.query import Query
-from modules.completeness import completeness
+from modules.completeness import Completeness
 
 # Database connection settings from config file
 config_file = "config.json"
@@ -20,7 +21,7 @@ try:
 
     # Example query to fetch data
     table_name = "hr.emp"
-    column_name = "job"
+
     query = f"SELECT * FROM {table_name} LIMIT 10;"
     
     # Fetch data into a DataFrame
@@ -29,8 +30,8 @@ try:
     print(data)
     
     #Completeness Test
-    completeness_instance = completeness(query_instance)
-    completeness_result = completeness_instance.calculate_completeness(table_name, column_name)
+    completeness_instance = Completeness(query_instance)
+    completeness_result = completeness_instance.calculate_completeness(table_name)
     print("Completeness Result:", completeness_result)
 
 
