@@ -1,3 +1,12 @@
+# 2. completeness
+# 완전성
+# - 데이터 값 완전성 : 데이터 값의 완전성 not null 컬럼에 null
+# - 데이터 파일 레코드 완전성 : 데이터 파일 내 레코드 수가 완전한지 
+
+# : nonsense 값을 확인하는 것과 결측값을 확인하는 쿼리로 제작
+# + 다양한 dbms에 맞는 쿼리 추가
+
+
 import pandas as pd
 
 class Completeness:

@@ -24,6 +24,7 @@ try:
 
     query = f"SELECT * FROM {table_name} LIMIT 10;"
     
+    
     # Fetch data into a DataFrame
     data = query_instance.fetch_data(query)
     print("Data loaded successfully:")
